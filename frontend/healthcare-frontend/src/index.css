@@ -1,0 +1,249 @@
+/* ------------------------------------
+🌟 Tailwind Setup
+------------------------------------ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ------------------------------------
+🌈 Global Styles
+------------------------------------ */
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+
+  /* 👇 FIX: Production-safe background */
+  /* background-color: #f5f7ff !important; */
+}
+
+
+/* ------------------------------------
+💎 Glassmorphism & Card Effects
+------------------------------------ */
+.glass-card {
+  @apply backdrop-blur-xl bg-white/40 border border-white/30 rounded-2xl transition-all hover:shadow-glow;
+}
+
+.card {
+  @apply glass-card p-6 md:p-8 shadow-soft hover:shadow-glow transition-all duration-300;
+}
+
+
+/* ------------------------------------
+🧠 Animations
+------------------------------------ */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+
+/* ------------------------------------
+🔘 Buttons
+------------------------------------ */
+.btn {
+  @apply font-medium px-5 py-2.5 rounded-lg shadow-md transition-all duration-300;
+}
+
+.btn-primary { @apply bg-blue-600 hover:bg-blue-700 text-white; }
+.btn-success { @apply bg-green-600 hover:bg-green-700 text-white; }
+.btn-warning { @apply bg-yellow-500 hover:bg-yellow-600 text-white; }
+.btn-error   { @apply bg-red-600 hover:bg-red-700 text-white; }
+
+.btn-outline {
+  @apply border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white;
+}
+
+
+/* ------------------------------------
+📦 Input Fields
+------------------------------------ */
+.input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg 
+         focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+         outline-none transition;
+}
+
+
+/* ------------------------------------
+🩺 Layout Helpers
+------------------------------------ */
+.page-container {
+  @apply flex flex-col items-center justify-center min-h-screen px-4;
+}
+
+.auth-box {
+  @apply card w-full max-w-md text-center fade-in;
+}
+
+
+/* ------------------------------------
+📜 Typography
+------------------------------------ */
+h1, h2, h3, h4, h5 {
+  @apply font-poppins font-semibold text-gray-800;
+}
+
+p {
+  @apply text-gray-600 leading-relaxed;
+}
+
+
+/* ------------------------------------
+🧾 Links
+------------------------------------ */
+a {
+  @apply text-blue-600 hover:text-blue-700 font-medium transition;
+}
+
+
+/* ------------------------------------
+✨ Scrollbar
+------------------------------------ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(194, 196, 201, 0.6);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(81, 82, 84, 0.8);
+}
+
+
+/* ------------------------------------
+💻 Login/Signup Styles
+------------------------------------ */
+.login-container {
+  @apply glass-card;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  animation: fadeIn 0.9s ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  color: #1e3a8a;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.login-form .form-group {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  transition: all 0.2s ease-in-out;
+}
+
+.login-form input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+  background-color: #fff;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+
+.login-button:hover {
+  background: linear-gradient(135deg, #1d4ed8, #4338ca);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.4);
+}
+
+.signup-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.signup-text a {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+
+/* ------------------------------------
+📱 Responsive
+------------------------------------ */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+
+/* ------------------------------------
+✨ Extra Animations
+------------------------------------ */
+@keyframes border-glow {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg); }
+}
+.animate-border-glow {
+  animation: border-glow 6s linear infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
