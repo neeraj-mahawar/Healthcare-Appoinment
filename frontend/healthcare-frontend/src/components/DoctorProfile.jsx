@@ -39,7 +39,7 @@ export default function DoctorProfile() {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}//appointments/${doctor._id}`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/doctor/appointments/${doctor._id}`,
           { headers: { Authorization: `Bearer ${token}` } },
         );
         if (res.data.success) {
@@ -70,7 +70,7 @@ export default function DoctorProfile() {
       setSaving(true);
       const token = localStorage.getItem("token");
       const res = await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}//account/${doctor._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/doctor/account/${doctor._id}`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } },
       );
