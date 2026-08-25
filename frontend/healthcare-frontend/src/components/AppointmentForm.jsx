@@ -192,7 +192,7 @@ export default function AppointmentForm({ backendUrl }) {
       const token = localStorage.getItem("token");
       if (!token) return showToast("info", "Please login first");
       try {
-        const res = await axios.get(`${url}/api/doctor`, {
+        const res = await axios.get(`${url}/api/doctor/auth`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setDoctors(res.data.doctors || []);
